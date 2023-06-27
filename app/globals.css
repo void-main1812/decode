@@ -5,6 +5,17 @@
 body,
 html,
 :root {
-  background-color: #0e1723;
+  background-color: #000;
   scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  background-color: #ffffff50;
+}
+
+::-webkit-scrollbar-thumb {
+  width: 4px;
+  background-color: #9348d1;
+  border-radius: 50px;
 }
