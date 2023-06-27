@@ -10,6 +10,7 @@ interface ButtonProps {
   danger?: boolean;
   disabled?: boolean;
   ghost?: boolean;
+  className?: string;
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -19,6 +20,7 @@ const Button: React.FC<ButtonProps> = ({
   danger,
   disabled,
   ghost,
+  className,
 }) => {
   return (
     <button
@@ -32,7 +34,7 @@ const Button: React.FC<ButtonProps> = ({
     rounded-md
     py-2
     text-md 
-    font-semibold 
+    font-extralight 
     focus-visible:outline 
     focus-visible:outline-2 
     focus-visible:outline-offset-2
@@ -44,7 +46,8 @@ const Button: React.FC<ButtonProps> = ({
           "bg-rose-500 hover:bg-rose-700 focus-visible:outline-rose-900",
         !ghost &&
           !danger &&
-          "bg-purple-600 text-sm shadow-xl px-8 shadow-purple-800/50 hover:shadow-none transition"
+          "bg-purple-600 text-sm shadow-xl px-8 shadow-purple-800/50 hover:shadow-none transition",
+        className
       )}
     >
       {children}
