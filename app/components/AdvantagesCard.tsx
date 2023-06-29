@@ -9,15 +9,15 @@ interface cardProps {
     className?: string;
 }
 
-const Card: React.FC<cardProps> = ({children, className}) => {
+const AdvantagesCard: React.FC<cardProps> = ({children, className}) => {
     const [props, set] = useSpring(() => ({
         xys: [0, 0, 1],
         config: {mass: 20, tension: 350, friction: 40},
     }));
 
     const calc = (x: number, y: number) => [
-        (y - window.innerHeight / 2) / 65,
-        (x - window.innerWidth / 2) / 65,
+        (y - window.innerHeight / 2) / 80,
+        (x - window.innerWidth / 2) / 80,
         1.01,
     ];
 
@@ -32,6 +32,10 @@ const Card: React.FC<cardProps> = ({children, className}) => {
 
     const trans = (x: number, y: number, s: number) =>
         `perspective(600px) rotateX(${x}deg) rotateY(${y}deg) scale(${s})`;
+
+    const transBlob = (x: number, y: number, s: number) => ` perspective(600px) translate3d(${x / 10}px,${y / 10}px,0) scale(${s})`;
+
+
     return (
         <a.div className={clsx(`
         bg-gradient-to-b
@@ -48,10 +52,11 @@ const Card: React.FC<cardProps> = ({children, className}) => {
                }
                onMouseLeave={handleMouseLeave}
                style={{transform: props.xys.to(trans)}}>
-            <div className='h-[40vh] w-[40vh] bg-indigo-500 blur-[25vh] transition-opacity duration-500 rounded-full absolute z-0 opacity-0 group-hover:opacity-100' />
+            <div
+                className='h-[40vh] w-[40vh] bg-indigo-500 blur-[25vh] transition-opacity duration-500 rounded-full absolute z-0 opacity-0 group-hover:opacity-100'/>
             {children}
         </a.div>
     );
 };
 
-export default Card;
+export default AdvantagesCard;
