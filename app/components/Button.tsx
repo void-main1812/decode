@@ -46,7 +46,7 @@ const Button: React.FC<ButtonProps> = ({
           "bg-rose-500 hover:bg-rose-700 focus-visible:outline-rose-900",
         !ghost &&
           !danger &&
-          "bg-purple-600 text-sm shadow-xl px-8 shadow-purple-800/50 hover:shadow-none transition",
+          "bg-purple-600 text-sm px-8 hover:shadow-xl hover:shadow-purple-700/40 hover:scale-110 duration-200 transition",
         className
       )}
     >

@@ -9,8 +9,6 @@ import Image from "next/image";
 import {useSpring, a} from "react-spring";
 import AdvantagesCard from "@/app/components/AdvantagesCard";
 import {Player} from "@lottiefiles/react-lottie-player";
-import Input from "@/app/components/Input";
-import InputArea from "@/app/components/InputArea";
 import UserItem from "@/app/components/UserItem";
 import MemberDetails from "@/app/components/MemberDetails";
 
@@ -166,7 +164,7 @@ const Body = () => {
             </div>
             <Button className="mt-8" type="button" onClick={() => {
             }}>
-                JOIN NOW
+                GET STARTED WITH DECODE
             </Button>
             <a.div
                 className="group relative"
