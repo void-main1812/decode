@@ -31,10 +31,6 @@ const Header = () => {
         </span>
             </div>
             <div className="flex justify-center gap-4 items-center">
-                <Button ghost type="button" onClick={() => {
-                }}>
-                    LOGIN
-                </Button>
                 <Button type="button" onClick={() => {
                 }}>
                     JOIN NOW
