@@ -11,6 +11,7 @@ import AdvantagesCard from "@/app/components/AdvantagesCard";
 import {Player} from "@lottiefiles/react-lottie-player";
 import UserItem from "@/app/components/UserItem";
 import MemberDetails from "@/app/components/MemberDetails";
+import EventsCard from "@/app/components/EventsCard";
 
 const play = Play({
     subsets: ["latin"],
@@ -30,6 +31,7 @@ const rowdies = Rowdies({
 const Body = () => {
 
     const [presentIndex, setPresentIndex] = useState(0);
+    const [showDetails, setShowDetails] = useState(0);
 
     // -------------------------------------Details of Core Team Members
 
@@ -104,6 +106,41 @@ const Body = () => {
             image: '/images/user.png',
             desc: 'a hardworking boy'
         },
+    ]
+
+    // -------------------------------------Details of Events
+
+    const events = [
+        {
+            index: 0,
+            name: "Codifiers",
+            details: "A weekly coding competition where you can test your coding skills and compete with other coders.",
+            image: '/images/coding.jpg'
+        },
+        {
+            index: 1,
+            name: "Ux-Athon",
+            details: "A UI/UX design competition where you can test your designing skills and compete with other designers.",
+            image: '/images/ui.jpg'
+        },
+        {
+            index: 2,
+            name: "Decode OCC",
+            details: "A semi-annual contribution competition where you can contribute to open source projects and win exciting prizes.",
+            image: '/images/github.jpg'
+        },
+        {
+            index: 3,
+            name: "Code Camp",
+            details: "A coding bootcamp where you can learn new technologies and build projects with the help of mentors.",
+            image: '/images/camp-night.jpg'
+        },
+        {
+            index: 4,
+            name: "Hacktivate",
+            details: "A annual hackathon where you can build projects and win exciting prizes.",
+            image: '/images/hackathon.jpg'
+        }
     ]
 
     // ---------------------------------Handling the image or card hover animations
@@ -257,8 +294,6 @@ const Body = () => {
                             Chat-GPT, GitHub Copilot and other Ai tools more efficiently</p>
                     </AdvantagesCard>
                 </div>
-                <Button onClick={() => {
-                }} className='mt-12 p-6'> Get Started Now </Button>
             </div>
 
             {/* ------------------------------------Core Team Section------------------------------------------ */}
@@ -266,6 +301,9 @@ const Body = () => {
             <div className='container flex flex-col gap-8 justify-center items-center mt-20 mb-10 '>
                 <h1 className={`text-6xl text-transparent bg-clip-text bg-gradient-to-b from-gray-100/80 to-gray-600/80 uppercase font-bold ${rowdies.className} `}>Core
                     Members</h1>
+                <p className={`text-gray-500 font-extralight text-lg w-[50vw] text-center ${inter.className} `}>These efforts
+                    can&apos;t be successful without the help of our core team members so let&apos;s
+                    appreciate their efforts by supporting them on various platforms. </p>
                 <div className='flex relative justify-center w-[95vw] items-center'>
 
                     {/*List of Members*/}
@@ -286,6 +324,38 @@ const Body = () => {
                     <div
                         className='h-[50vh] w-[50vh] bg-purple-600 rounded-full blur-[30vh] absolute -left-[10vw] z-0'/>
                 </div>
+            </div>
+
+            {/* --------------------------------------------Events & Activities-----------------------------------  */}
+            <div className='container flex flex-col gap-8 justify-center items-center relative mt-10 mb-10'>
+                <h1 className={`text-6xl text-transparent bg-clip-text bg-gradient-to-b from-gray-100/80 to-gray-600/80 uppercase font-bold ${rowdies.className} `}>Events
+                    & Activities</h1>
+                <p className={`text-gray-500 font-extralight text-lg w-[50vw] text-center ${inter.className} `}>There will be
+                    various Events and activities under the Community which will enhance your skills and motivate you to
+                    excel in your career.</p>
+                <div className='flex justify-center items-center z-10 relative w-[95vw]'>
+                    <div className='flex flex-col justify-start items-start w-[50vw] '>
+                        {
+                            events.map((item, index) => {
+                                return (
+                                    <EventsCard
+                                        key={index}
+                                        title={item.name}
+                                        description={item.details}
+                                        background={index === showDetails ? 'from-gray-500/20 to-gray-800/20' : 'bg-transparent'}
+                                        onClick={() => setShowDetails(index)}
+                                        show={index === showDetails ? 'block' : 'hidden'}
+                                    />
+                                );
+                            })
+                        }
+                    </div>
+                    <Image src={events[showDetails].image} alt={"image"} className='object-cover rounded-lg'
+                           height={500}
+                           width={700}/>
+                </div>
+                <div
+                    className='absolute bottom-0 h-[50vh] w-[80vh] bg-gradient-to-r from-pink-600/30 to-purple-500/30 left-[10vh] blur-[30vh] z-0'/>
             </div>
 
         </div>
