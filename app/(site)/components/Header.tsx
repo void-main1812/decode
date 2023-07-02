@@ -20,15 +20,15 @@ const Header = () => {
                 Decode
             </div>
             <div className="flex gap-3 text-gray-400 text-base justify-center items-center">
-        <span className="hover:text-white hover:cursor-pointer transition">
+        <a href='#members' className="hover:text-white hover:cursor-pointer transition">
+          Core Members
+        </a>
+                <a href='#events' className="hover:text-white hover:cursor-pointer transition">
+          Events
+        </a>
+                <a href='#about' className="hover:text-white hover:cursor-pointer transition">
           About
-        </span>
-                <span className="hover:text-white hover:cursor-pointer transition">
-          Contact Us
-        </span>
-                <span className="hover:text-white hover:cursor-pointer transition">
-          Social
-        </span>
+        </a>
             </div>
             <div className="flex justify-center gap-4 items-center">
                 <Button type="button" onClick={() => {
