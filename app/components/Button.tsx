@@ -43,7 +43,7 @@ const Button: React.FC<ButtonProps> = ({
     text-white
     `,
                 disabled && "opacity-50 cursor-default",
-                secondary && "bg-white text-purple-500 text-xl font-semibold hover:scale-95 transition duration-400",
+                secondary && "bg-white text-purple-600 text-xl font-semibold hover:scale-95 transition duration-400",
                 ghost && "bg-transparent px-3 text-xl hover:bg-gray-100/30 ",
                 danger &&
                 "bg-rose-500 hover:bg-rose-700 focus-visible:outline-rose-900",
