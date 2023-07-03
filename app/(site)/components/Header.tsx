@@ -4,6 +4,7 @@ import React from "react";
 import {Play} from "next/font/google";
 import Button from "@/app/components/Button";
 import {Rowdies} from "next/font/google";
+import {useRouter} from "next/navigation";
 
 const play = Play({
     subsets: ["latin"],
@@ -13,6 +14,9 @@ const play = Play({
 const rowdies = Rowdies({subsets: ["latin"], weight: "400"});
 
 const Header = () => {
+
+    const router = useRouter()
+
     return (
         <div
             className="z-30 fixed top-0 w-full py-2 flex bg-transparent backdrop-blur-md border-b-[1px] border-gray-400/20 justify-between px-8 items-center ">
@@ -31,8 +35,7 @@ const Header = () => {
         </a>
             </div>
             <div className="flex justify-center gap-4 items-center">
-                <Button type="button" onClick={() => {
-                }}>
+                <Button type="button" onClick={() => router.push('/Login')}>
                     JOIN NOW
                 </Button>
             </div>
