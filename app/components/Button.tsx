@@ -12,6 +12,7 @@ interface ButtonProps {
     ghost?: boolean;
     className?: string;
     secondary?: boolean;
+    fullWidth?: boolean;
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -22,7 +23,8 @@ const Button: React.FC<ButtonProps> = ({
                                            disabled,
                                            ghost,
                                            className,
-                                           secondary
+                                           secondary,
+                                           fullWidth,
                                        }) => {
     return (
         <button
@@ -47,6 +49,7 @@ const Button: React.FC<ButtonProps> = ({
                 ghost && "bg-transparent px-3 text-xl hover:bg-gray-100/30 ",
                 danger &&
                 "bg-rose-500 hover:bg-rose-700 focus-visible:outline-rose-900",
+                fullWidth && "w-full",
                 !ghost &&
                 !danger &&
                 !secondary &&
