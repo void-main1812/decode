@@ -35,7 +35,7 @@ const Header = () => {
         </a>
             </div>
             <div className="flex justify-center gap-4 items-center">
-                <Button type="button" onClick={() => router.push('/Login')}>
+                <Button type="button" onClick={() => router.push('/Auth')}>
                     JOIN NOW
                 </Button>
             </div>
