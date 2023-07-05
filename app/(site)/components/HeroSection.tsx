@@ -4,7 +4,7 @@ import {a} from "react-spring";
 import Image from "next/image";
 import {Inter, Play, Rowdies} from "next/font/google";
 import {useDragAnimation} from "@/hooks/useDragAnimation";
-import motion from "framer-motion";
+import TextInView from "@/app/components/TextInView";
 
 const inter = Inter({
     subsets: ["latin"],
@@ -31,14 +31,16 @@ const HeroSection = () => {
                 <p className="uppercase text-3xl text-white font-normal tracking-[5px]">
                     Welcome to
                 </p>
-                <div className={rowdies.className}>
-                    <h1 className="text-8xl text-transparent mb-4 bg-clip-text bg-gradient-to-b relative from-gray-50 to-gray-600/20 font-bold tracking-[8px]">
-                        DECODE
-                        <p className={`text-white text-xl tracking-wide uppercase absolute px-4 py-1 rounded-full backdrop-blur-sm -right-10 bottom-0 bg-gray-50/10 ${play.className}`}>
-                            beta
-                        </p>
-                    </h1>
-                </div>
+                {/*<TextInView>*/}
+                    <div className={rowdies.className}>
+                        <h1 className="text-8xl text-transparent mb-4 bg-clip-text bg-gradient-to-b relative from-gray-50 to-gray-600/20 font-bold tracking-[8px]">
+                            DECODE
+                            <p className={`text-white text-xl tracking-wide uppercase absolute px-4 py-1 rounded-full backdrop-blur-sm -right-10 bottom-0 bg-gray-50/10 ${play.className}`}>
+                                beta
+                            </p>
+                        </h1>
+                    </div>
+                {/*</TextInView>*/}
                 <p className="uppercase text-3xl text-gray-100/40 font-normal tracking-[5px]">
                     Innovate, Collaborate & Code
                 </p>
