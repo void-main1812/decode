@@ -1,4 +1,4 @@
-import React, {useEffect, useRef} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import Button from "@/app/components/Button";
 import {a} from "react-spring";
 import Image from "next/image";
@@ -6,10 +6,7 @@ import {motion, useAnimation, useInView} from "framer-motion";
 import {Inter, Play, Rowdies} from "next/font/google";
 import {useDragAnimation} from "@/hooks/useDragAnimation";
 import {useRouter} from "next/navigation";
-
-const inter = Inter({
-    subsets: ["latin"],
-});
+import TextSection from "@/app/(site)/components/TextSection";
 
 const rowdies = Rowdies({
     subsets: ["latin"],
@@ -21,26 +18,22 @@ const play = Play({
     weight: "400",
 });
 
-const TextAnimation = {
-    hidden: {
-        opacity: 0, y: "-50%"
-    },
-    visible: {
-        opacity: 1, y: "0"
-    },
-}
+const HeroSection = () => {
 
-interface Props {
-    width?: "fit-content" | "100%"
-}
-
-const HeroSection = ({width = "fit-content"}: Props) => {
+    const [isLoading, setIsLoading] = useState(false);
 
     const router = useRouter();
     const ref = useRef(null);
     const isInView = useInView(ref, {margin: "-20% 0% -20% 0%", once: true})
 
     const mainControls = useAnimation();
+
+    const handleRoute = () => {
+        setIsLoading(true);
+        setTimeout(() => {
+            router.push('/Auth');
+        }, 1000)
+    }
 
     useEffect(() => {
         //     Fire animation
@@ -55,42 +48,45 @@ const HeroSection = ({width = "fit-content"}: Props) => {
         <>
             <div className="h-[60vh] w-[80vw] bg-purple-800 blur-[50vh] rounded-full absolute top-[-30vh]"/>
             <div className="flex flex-col gap-5 justify-center items-center">
-                <motion.p variants={TextAnimation} initial="hidden" animate="visible"
-                          transition={{duration: 0.75, delay: 0.1}}
-                          className="uppercase text-3xl text-white font-normal tracking-[5px]">
-                    Welcome to
-                </motion.p>
-                <motion.div className={rowdies.className} variants={TextAnimation} initial="hidden" animate="visible"
-                            transition={{duration: 1, delay: 0.5}}>
-                    <h1 className="text-8xl text-transparent mb-4 bg-clip-text bg-gradient-to-b relative from-gray-50 to-gray-600/20 font-bold tracking-[8px]">
-                        DECODE
-                        <p className={`text-white text-xl tracking-wide uppercase absolute px-4 py-1 rounded-full backdrop-blur-sm -right-10 bottom-0 bg-gray-50/10 ${play.className}`}>
-                            beta
-                        </p>
-                    </h1>
-                </motion.div>
-                <motion.p variants={TextAnimation} initial="hidden" animate="visible"
-                          transition={{duration: 0.75, delay: 1.2}}
-                          className="uppercase text-3xl text-gray-100/40 font-normal tracking-[5px]">
-                    Innovate, Collaborate & Code
-                </motion.p>
+                <TextSection delay={0.1}>
+                    <p className="uppercase text-3xl text-white font-normal tracking-[5px]">
+                        Welcome to
+                    </p>
+                </TextSection>
+                <TextSection delay={0.5}>
+                    <div className={rowdies.className}
+                    >
+                        <h1 className="text-8xl text-transparent mb-4 bg-clip-text bg-gradient-to-b relative from-gray-50 to-gray-600/20 font-bold tracking-[8px]">
+                            DECODE
+                            <p className={`text-white text-xl tracking-wide uppercase absolute px-4 py-1 rounded-full backdrop-blur-sm -right-10 bottom-0 bg-gray-50/10 ${play.className}`}>
+                                beta
+                            </p>
+                        </h1>
+                    </div>
+                </TextSection>
+                <TextSection delay={0.9}>
+                    <p
+                        className="uppercase text-3xl text-gray-100/40 font-normal tracking-[5px]">
+                        Innovate, Collaborate & Code
+                    </p>
+                </TextSection>
             </div>
-            <motion.div initial={{opacity:0, scale:0.8}} animate={{opacity:1, scale: 1}} transition={{duration: 0.5, delay:1.5}} >
-            <Button className="mt-8" type="button" onClick={() => router.push('/Auth')}>
-                GET STARTED WITH DECODE
-            </Button>
+            <motion.div initial={{opacity: 0, scale: 0.8}} animate={{opacity: 1, scale: 1}}
+                        transition={{duration: 0.5, delay: 1.5}}>
+                <Button className="mt-8" type="button" height={"25"} isLoading={isLoading} onClick={handleRoute}>
+                    GET STARTED WITH DECODE
+                </Button>
             </motion.div>
             <motion.div variants={{
                 hidden: {
-                    opacity:0, rotateX: -50, y: "10%"
+                    opacity: 0, rotateX: -50, y: "10%"
                 },
                 visible: {
-                    opacity:1, rotateX: 0, y: "0"
+                    opacity: 1, rotateX: 0, y: "0"
                 }
             }} initial="hidden" animate={mainControls}
                         transition={{duration: 1.5}}
-            style={{width}}
-            ref={ref}
+                        ref={ref}
             >
                 <a.div
                     className="group relative"
