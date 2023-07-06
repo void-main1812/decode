@@ -3,6 +3,7 @@
 import React from "react";
 import clsx from "clsx";
 import {motion} from 'framer-motion'
+import {TailSpin} from "react-loader-spinner";
 
 interface ButtonProps {
     type?: "button" | "submit" | "reset" | undefined;
@@ -14,6 +15,8 @@ interface ButtonProps {
     className?: string;
     secondary?: boolean;
     fullWidth?: boolean;
+    isLoading?: boolean;
+    height: string;
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -26,7 +29,10 @@ const Button: React.FC<ButtonProps> = ({
                                            className,
                                            secondary,
                                            fullWidth,
+                                           isLoading,
+                                           height
                                        }) => {
+
     return (
         < motion.button
             whileHover={
@@ -73,12 +79,17 @@ const Button: React.FC<ButtonProps> = ({
                 )
             }
         >
-            {
-                children
-            }
+            {isLoading ? <TailSpin
+                height={height}
+                width={height}
+                color="#f0f0f0"
+                ariaLabel="tail-spin-loading"
+                radius="1"
+                wrapperClass=""
+                visible={true}
+            /> : children}
         </motion.button>
-    )
-        ;
+    );
 };
 
 export default Button;
