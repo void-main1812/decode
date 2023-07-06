@@ -2,6 +2,7 @@
 
 import React from "react";
 import clsx from "clsx";
+import {motion} from 'framer-motion'
 
 interface ButtonProps {
     type?: "button" | "submit" | "reset" | undefined;
@@ -27,12 +28,26 @@ const Button: React.FC<ButtonProps> = ({
                                            fullWidth,
                                        }) => {
     return (
-        <button
+        < motion.button
+            whileHover={
+                {
+                    scale: 1.1,
+                    transition: {type: "spring", stiffness: 400, damping: 17, delay: 0}
+                }
+            }
+
+            whileTap={
+                {
+                    scale: 0.9,
+                    transition: {type: "spring", stiffness: 400, damping: 17}
+                }
+            }
             onClick={onClick}
             type={type}
             disabled={disabled}
-            className={clsx(
-                `
+            className={
+                clsx(
+                    `
     flex 
     justify-center 
     rounded-md
@@ -44,22 +59,26 @@ const Button: React.FC<ButtonProps> = ({
     focus-visible:outline-offset-2
     text-white
     `,
-                disabled && "opacity-50 cursor-default",
-                secondary && "bg-white text-purple-600 text-xl font-semibold hover:scale-95 transition duration-400",
-                ghost && "bg-transparent px-3 text-xl hover:bg-gray-100/30 ",
-                danger &&
-                "bg-rose-500 hover:bg-rose-700 focus-visible:outline-rose-900",
-                fullWidth && "w-full",
-                !ghost &&
-                !danger &&
-                !secondary &&
-                "bg-purple-600 text-sm px-8 hover:shadow-xl hover:shadow-purple-700/40 hover:scale-110 duration-200 transition",
-                className
-            )}
+                    disabled && "opacity-50 cursor-default",
+                    secondary && "bg-white text-purple-600 text-xl font-semibold",
+                    ghost && "bg-transparent px-3 text-xl hover:bg-gray-100/30 ",
+                    danger &&
+                    "bg-rose-500 hover:bg-rose-700 focus-visible:outline-rose-900",
+                    fullWidth && "w-full",
+                    !ghost &&
+                    !danger &&
+                    !secondary &&
+                    "bg-purple-600 text-sm px-8 hover:shadow-xl hover:shadow-purple-700/40 ",
+                    className
+                )
+            }
         >
-            {children}
-        </button>
-    );
+            {
+                children
+            }
+        </motion.button>
+    )
+        ;
 };
 
 export default Button;
