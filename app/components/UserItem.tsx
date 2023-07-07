@@ -4,6 +4,7 @@ import React, {useEffect, useRef} from 'react';
 import Image from "next/image";
 import {Inter} from "next/font/google";
 import {motion, useAnimation, useInView} from "framer-motion";
+import useScrollAnimation from "@/hooks/useScrollAnimation";
 
 interface userItemProps {
     name: string;
@@ -19,17 +20,7 @@ const inter = Inter({
 
 const UserItem: React.FC<userItemProps> = ({name, onClick, image, role}) => {
 
-    const ref = useRef(null);
-    const isInView = useInView(ref, {margin: "-20% 0% -20% 0%", once: false})
-
-    const mainControls = useAnimation();
-
-    useEffect(() => {
-        //     Fire animation
-        if (isInView) {
-            mainControls.start("visible").then(() => console.log("Animation completed"))
-        }
-    }, [isInView])
+    const {ref, mainControls} = useScrollAnimation();
 
     return (
         <motion.div variants={{

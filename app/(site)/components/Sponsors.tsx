@@ -2,20 +2,11 @@ import React, {useEffect, useRef} from 'react';
 import Image from "next/image";
 import {motion, useAnimation, useInView} from "framer-motion";
 import AnimatedImage from "@/app/(site)/components/AnimatedImage";
+import useScrollAnimation from "@/hooks/useScrollAnimation";
 
 const Sponsors = () => {
 
-    const ref = useRef(null);
-    const isInView = useInView(ref, {margin: "-20% 0% -20% 0%", once: true})
-
-    const mainControls = useAnimation();
-
-    useEffect(() => {
-        //     Fire animation
-        if (isInView) {
-            mainControls.start("visible").then(() => console.log("Animation completed"))
-        }
-    }, [isInView])
+    const {ref, mainControls} = useScrollAnimation();
 
     return (
         <motion.div variants={{

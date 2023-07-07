@@ -7,6 +7,7 @@ import {Inter, Play, Rowdies} from "next/font/google";
 import {useDragAnimation} from "@/hooks/useDragAnimation";
 import {useRouter} from "next/navigation";
 import TextSection from "@/app/(site)/components/TextSection";
+import useScrollAnimation from "@/hooks/useScrollAnimation";
 
 const rowdies = Rowdies({
     subsets: ["latin"],
@@ -24,10 +25,7 @@ const HeroSection = () => {
     const {handleMouseLeave, handleMouseMove, props, trans} = useDragAnimation();
 
     const router = useRouter();
-    const ref = useRef(null);
-    const isInView = useInView(ref, {margin: "-20% 0% -20% 0%", once: true})
-
-    const mainControls = useAnimation();
+    const {ref, mainControls} = useScrollAnimation();
 
     const handleRoute = () => {
         setIsLoading(true);
@@ -35,13 +33,6 @@ const HeroSection = () => {
             router.push('/Auth');
         }, 1000)
     }
-
-    useEffect(() => {
-        //     Fire animation
-        if (isInView) {
-            mainControls.start("visible").then(() => console.log("Animation completed"))
-        }
-    }, [isInView])
 
     return (
         <>

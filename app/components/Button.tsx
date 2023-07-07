@@ -4,6 +4,7 @@ import React, {useEffect, useRef} from "react";
 import clsx from "clsx";
 import {motion, useAnimation, useInView} from 'framer-motion'
 import {TailSpin} from "react-loader-spinner";
+import useScrollAnimation from "@/hooks/useScrollAnimation";
 
 interface ButtonProps {
     type?: "button" | "submit" | "reset" | undefined;
@@ -35,17 +36,7 @@ const Button: React.FC<ButtonProps> = ({
                                            delay
                                        }) => {
 
-    const ref = useRef(null);
-    const isInView = useInView(ref, {margin: "0% 0% -20% 0%", once: true})
-
-    const mainControls = useAnimation();
-
-    useEffect(() => {
-        //     Fire animation
-        if (isInView) {
-            mainControls.start("visible").then(() => console.log("Animation completed"))
-        }
-    }, [isInView])
+    const {ref, mainControls} = useScrollAnimation();
 
     return (
         < motion.button
@@ -91,18 +82,17 @@ const Button: React.FC<ButtonProps> = ({
     focus-visible:outline 
     focus-visible:outline-2 
     focus-visible:outline-offset-2
-    text-white
     `,
-                    disabled && "opacity-50 cursor-default",
+                    disabled && "opacity-50 cursor-default text-white ",
                     secondary && "bg-white text-purple-700 text-xl font-semibold",
-                    ghost && "bg-transparent px-3 text-xl hover:bg-gray-100/30 ",
+                    ghost && "bg-transparent px-3 text-xl hover:bg-gray-100/30 text-white ",
                     danger &&
-                    "bg-rose-500 hover:bg-rose-700 focus-visible:outline-rose-900",
+                    "bg-rose-500 hover:bg-rose-700 text-white focus-visible:outline-rose-900",
                     fullWidth && "w-full",
                     !ghost &&
                     !danger &&
                     !secondary &&
-                    "bg-purple-600 text-sm px-8 hover:shadow-xl hover:shadow-purple-700/40 ",
+                    "bg-purple-600 text-sm px-8 hover:shadow-xl hover:shadow-purple-700/40 text-white ",
                     className
                 )
             }

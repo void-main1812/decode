@@ -4,6 +4,7 @@ import MemberDetails from "@/app/components/MemberDetails";
 import {Inter, Rowdies} from "next/font/google";
 import TextSection from "@/app/(site)/components/TextSection";
 import {motion, useAnimation, useInView} from "framer-motion";
+import useScrollAnimation from "@/hooks/useScrollAnimation";
 
 const inter = Inter({
     subsets: ["latin"],
@@ -18,17 +19,7 @@ const Members = () => {
 
     const [presentIndex, setPresentIndex] = useState(0);
 
-    const ref = useRef(null);
-    const isInView = useInView(ref, {margin: "-20% 0% -20% 0%", once: true})
-
-    const mainControls = useAnimation();
-
-    useEffect(() => {
-        //     Fire animation
-        if (isInView) {
-            mainControls.start("visible").then(() => console.log("Animation completed"))
-        }
-    }, [isInView])
+    const {ref, mainControls} = useScrollAnimation();
 
     // -------------------------------------Details of Core Team Members
 
