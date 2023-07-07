@@ -1,8 +1,8 @@
 "use client";
 
-import React from "react";
+import React, {useEffect, useRef} from "react";
 import clsx from "clsx";
-import {motion} from 'framer-motion'
+import {motion, useAnimation, useInView} from 'framer-motion'
 import {TailSpin} from "react-loader-spinner";
 
 interface ButtonProps {
@@ -17,6 +17,7 @@ interface ButtonProps {
     fullWidth?: boolean;
     isLoading?: boolean;
     height: string;
+    delay?: number;
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -30,11 +31,38 @@ const Button: React.FC<ButtonProps> = ({
                                            secondary,
                                            fullWidth,
                                            isLoading,
-                                           height
+                                           height,
+                                           delay
                                        }) => {
+
+    const ref = useRef(null);
+    const isInView = useInView(ref, {margin: "0% 0% -20% 0%", once: true})
+
+    const mainControls = useAnimation();
+
+    useEffect(() => {
+        //     Fire animation
+        if (isInView) {
+            mainControls.start("visible").then(() => console.log("Animation completed"))
+        }
+    }, [isInView])
 
     return (
         < motion.button
+            variants={{
+                hidden: {
+                    opacity: 0,
+                    scale: 0.9
+                },
+                visible: {
+                    opacity: 1,
+                    scale: 1
+                }
+            }}
+            initial='hidden'
+            animate={mainControls}
+            transition={{duration: 0.25 , delay: delay}}
+            ref={ref}
             whileHover={
                 {
                     scale: 1.1,
@@ -66,7 +94,7 @@ const Button: React.FC<ButtonProps> = ({
     text-white
     `,
                     disabled && "opacity-50 cursor-default",
-                    secondary && "bg-white text-purple-600 text-xl font-semibold",
+                    secondary && "bg-white text-purple-700 text-xl font-semibold",
                     ghost && "bg-transparent px-3 text-xl hover:bg-gray-100/30 ",
                     danger &&
                     "bg-rose-500 hover:bg-rose-700 focus-visible:outline-rose-900",

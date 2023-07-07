@@ -1,8 +1,9 @@
 'use client'
 
-import React from 'react';
+import React, {useEffect, useRef} from 'react';
 import {Inter} from 'next/font/google'
 import Button from "@/app/components/Button";
+import {motion, useAnimation, useInView} from "framer-motion";
 
 const inter = Inter({
     subsets: ['latin']
@@ -13,8 +14,35 @@ interface VolunteerOpeningProps {
 }
 
 const VolunteerOpening: React.FC<VolunteerOpeningProps> = ({onClick}) => {
+
+    const ref = useRef(null);
+    const isInView = useInView(ref, {margin: "-20% 0% -20% 0%", once: false})
+
+    const mainControls = useAnimation();
+
+    useEffect(() => {
+        //     Fire animation
+        if (isInView) {
+            mainControls.start("visible").then(() => console.log("Animation completed"))
+        }
+    }, [isInView])
+
     return (
-        <div className={`flex w-[95vw] p-[5vh] justify-start z-10 mb-20 mt-10 bg-gradient-to-br from-purple-700 to-purple-900 rounded-lg border-[1px] border-purple-100/20 items-start`}>
+        <motion.div variants={{
+            hidden: {
+                opacity: 0,
+                rotateX: 90
+            },
+            visible: {
+                opacity: 1,
+                rotateX: 0
+            }
+        }}
+                    initial='hidden'
+                    animate={mainControls}
+                    ref={ref}
+                    transition={{duration: 0.75, ease: 'easeInOut'}}
+                    className={`flex w-[95vw] p-[5vh] justify-start z-10 mb-20 mt-10 bg-gradient-to-br from-purple-700 to-purple-900 rounded-lg border-[1px] border-purple-100/20 items-start`}>
             <div className='flex flex-col justify-between w-full items-start'>
                 <h1 className={`text-4xl text-gray-100 font-semibold tracking-wider ${inter.className}`}>
                     We are looking for volunteers!
@@ -26,11 +54,11 @@ const VolunteerOpening: React.FC<VolunteerOpeningProps> = ({onClick}) => {
                 </p>
             </div>
             <div className='flex flex-col justify-start items-start ml-10'>
-                <Button onClick={onClick} className='mt-10 w-[15vw]' secondary >Apply Now</Button>
-                <Button onClick={onClick} className='mt-10 w-[15vw]' ghost >Learn More</Button>
+                <Button height={'25'} onClick={onClick} className='mt-10 w-[15vw]' secondary >Apply Now</Button>
+                <Button height={'25'} onClick={onClick} className='mt-10 w-[15vw]' ghost >Learn More</Button>
             </div>
 
-        </div>
+        </motion.div>
     );
 };
 

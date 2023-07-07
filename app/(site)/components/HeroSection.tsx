@@ -21,6 +21,7 @@ const play = Play({
 const HeroSection = () => {
 
     const [isLoading, setIsLoading] = useState(false);
+    const {handleMouseLeave, handleMouseMove, props, trans} = useDragAnimation();
 
     const router = useRouter();
     const ref = useRef(null);
@@ -41,8 +42,6 @@ const HeroSection = () => {
             mainControls.start("visible").then(() => console.log("Animation completed"))
         }
     }, [isInView])
-
-    const {handleMouseLeave, handleMouseMove, props, trans} = useDragAnimation();
 
     return (
         <>
