@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, {useState} from "react";
 import {Play} from "next/font/google";
 import Button from "@/app/components/Button";
 import {Rowdies} from "next/font/google";
@@ -15,6 +15,15 @@ const rowdies = Rowdies({subsets: ["latin"], weight: "400"});
 
 const Header = () => {
 
+    const [isLoading, setIsLoading] = useState(false);
+
+    const handleRoute = () => {
+        setIsLoading(true);
+        setTimeout(() => {
+            router.push('/Auth');
+        }, 1000)
+    }
+
     const router = useRouter()
 
     return (
@@ -24,21 +33,19 @@ const Header = () => {
                 Decode
             </div>
             <div className="flex gap-3 text-gray-400 text-base justify-center items-center">
-        <a href='#members' className="hover:text-white hover:cursor-pointer transition">
-          Core Members
-        </a>
+                <a href='#members' className="hover:text-white hover:cursor-pointer transition">
+                    Core Members
+                </a>
                 <a href='#events' className="hover:text-white hover:cursor-pointer transition">
-          Events
-        </a>
+                    Events
+                </a>
                 <a href='#about' className="hover:text-white hover:cursor-pointer transition">
-          About
-        </a>
+                    About
+                </a>
             </div>
-            <div className="flex justify-center gap-4 items-center">
-                <Button type="button" onClick={() => router.push('/Auth')}>
-                    JOIN NOW
-                </Button>
-            </div>
+            <Button height={'20'} isLoading={isLoading} delay={0.25} type="button" onClick={handleRoute}>
+                JOIN NOW
+            </Button>
         </div>
     );
 };
