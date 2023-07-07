@@ -3,6 +3,7 @@ import Image from "next/image";
 import {Inter} from "next/font/google";
 import {BiLogoGithub, BiLogoLinkedin} from "react-icons/bi";
 import {motion, useAnimation, useInView} from "framer-motion";
+import useScrollAnimation from "@/hooks/useScrollAnimation";
 
 interface memberDetailsProps {
     name: string;
@@ -18,17 +19,7 @@ const inter = Inter({
 
 const MemberDetails: React.FC<memberDetailsProps> = ({name, image, role, description}) => {
 
-    const ref = useRef(null);
-    const isInView = useInView(ref, {margin: "-20% 0% -20% 0%", once: false})
-
-    const mainControls = useAnimation();
-
-    useEffect(() => {
-        //     Fire animation
-        if (isInView) {
-            mainControls.start("visible").then(() => console.log("Animation completed"))
-        }
-    }, [isInView])
+    const {ref, mainControls} = useScrollAnimation();
 
     return (
         <motion.div variants={{

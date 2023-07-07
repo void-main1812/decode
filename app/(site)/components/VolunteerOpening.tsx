@@ -4,6 +4,7 @@ import React, {useEffect, useRef} from 'react';
 import {Inter} from 'next/font/google'
 import Button from "@/app/components/Button";
 import {motion, useAnimation, useInView} from "framer-motion";
+import useScrollAnimation from "@/hooks/useScrollAnimation";
 
 const inter = Inter({
     subsets: ['latin']
@@ -15,17 +16,7 @@ interface VolunteerOpeningProps {
 
 const VolunteerOpening: React.FC<VolunteerOpeningProps> = ({onClick}) => {
 
-    const ref = useRef(null);
-    const isInView = useInView(ref, {margin: "-20% 0% -20% 0%", once: false})
-
-    const mainControls = useAnimation();
-
-    useEffect(() => {
-        //     Fire animation
-        if (isInView) {
-            mainControls.start("visible").then(() => console.log("Animation completed"))
-        }
-    }, [isInView])
+    const {ref, mainControls} = useScrollAnimation();
 
     return (
         <motion.div variants={{

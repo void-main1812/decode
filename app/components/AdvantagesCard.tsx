@@ -3,6 +3,7 @@
 import React, {useEffect, useRef} from 'react';
 import clsx from "clsx";
 import {motion, useAnimation, useInView} from "framer-motion";
+import useScrollAnimation from "@/hooks/useScrollAnimation";
 
 interface cardProps {
     children?: React.ReactNode;
@@ -12,17 +13,7 @@ interface cardProps {
 
 const AdvantagesCard: React.FC<cardProps> = ({children, className, delay}) => {
 
-    const ref = useRef(null);
-    const isInView = useInView(ref, {margin: "-20% 0% -20% 0%", once: true})
-
-    const mainControls = useAnimation();
-
-    useEffect(() => {
-        //     Fire animation
-        if (isInView) {
-            mainControls.start("visible").then(() => console.log("Animation completed"))
-        }
-    }, [isInView])
+    const {ref, mainControls} = useScrollAnimation();
 
     return (
         <motion.div variants={{

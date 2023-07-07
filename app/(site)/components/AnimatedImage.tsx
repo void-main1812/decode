@@ -1,5 +1,6 @@
 import React, {useEffect, useRef} from 'react';
 import {motion, useAnimation, useInView} from "framer-motion";
+import useScrollAnimation from "@/hooks/useScrollAnimation";
 
 interface Props {
     children: React.ReactNode;
@@ -8,17 +9,7 @@ interface Props {
 
 const AnimatedImage: React.FC<Props> = ({children, delay}) => {
 
-    const ref = useRef(null);
-    const isInView = useInView(ref, {margin: "-20% 0% -20% 0%", once: true})
-
-    const mainControls = useAnimation();
-
-    useEffect(() => {
-        //     Fire animation
-        if (isInView) {
-            mainControls.start("visible").then(() => console.log("Animation completed"))
-        }
-    }, [isInView])
+    const {ref, mainControls} = useScrollAnimation();
 
     return (
         <motion.div variants={{
