@@ -19,6 +19,7 @@ interface ButtonProps {
     isLoading?: boolean;
     height: string;
     delay?: number;
+    onPress?: () => void;
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -33,7 +34,8 @@ const Button: React.FC<ButtonProps> = ({
                                            fullWidth,
                                            isLoading,
                                            height,
-                                           delay
+                                           delay,
+                                           onPress
                                        }) => {
 
     const {ref, mainControls} = useScrollAnimation();
@@ -43,16 +45,14 @@ const Button: React.FC<ButtonProps> = ({
             variants={{
                 hidden: {
                     opacity: 0,
-                    scale: 0.9
                 },
                 visible: {
                     opacity: 1,
-                    scale: 1
                 }
             }}
             initial='hidden'
             animate={mainControls}
-            transition={{duration: 0.25 , delay: delay}}
+            transition={{duration: 0.25, delay: delay}}
             ref={ref}
             whileHover={
                 {
@@ -63,7 +63,7 @@ const Button: React.FC<ButtonProps> = ({
 
             whileTap={
                 {
-                    scale: 0.9,
+                    scale: 1,
                     transition: {type: "spring", stiffness: 400, damping: 17}
                 }
             }
@@ -83,7 +83,7 @@ const Button: React.FC<ButtonProps> = ({
     focus-visible:outline-2 
     focus-visible:outline-offset-2
     `,
-                    disabled && "opacity-50 cursor-default text-white ",
+                    disabled && "opacity-50 cursor-not-allowed text-white ",
                     secondary && "bg-white text-purple-700 text-xl font-semibold",
                     ghost && "bg-transparent px-3 text-xl hover:bg-gray-100/30 text-white ",
                     danger &&

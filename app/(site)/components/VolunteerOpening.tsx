@@ -1,10 +1,11 @@
 'use client'
 
-import React, {useEffect, useRef} from 'react';
+import React, {useState} from 'react';
 import {Inter} from 'next/font/google'
 import Button from "@/app/components/Button";
-import {motion, useAnimation, useInView} from "framer-motion";
+import {motion} from "framer-motion";
 import useScrollAnimation from "@/hooks/useScrollAnimation";
+import VolunteerModal from "@/app/(site)/components/VolunteerModal";
 
 const inter = Inter({
     subsets: ['latin']
@@ -16,6 +17,7 @@ interface VolunteerOpeningProps {
 
 const VolunteerOpening: React.FC<VolunteerOpeningProps> = ({onClick}) => {
 
+    const [isOpen, setIsOpen] = useState(false);
     const {ref, mainControls} = useScrollAnimation();
 
     return (
@@ -45,7 +47,8 @@ const VolunteerOpening: React.FC<VolunteerOpeningProps> = ({onClick}) => {
                 </p>
             </div>
             <div className='flex flex-col justify-start items-start ml-10'>
-                <Button height={'25'} onClick={onClick} className='mt-10 w-[15vw]' secondary >Apply Now</Button>
+                <Button height={'25'} onClick={() => {} } className='mt-10 w-[15vw]' secondary >Apply Now</Button>
+                {/*<VolunteerModal onClose={ () => setIsOpen(false)} isOpen={isOpen} />*/}
                 <Button height={'25'} onClick={onClick} className='mt-10 w-[15vw]' ghost >Learn More</Button>
             </div>
 
