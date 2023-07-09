@@ -14,16 +14,16 @@ import {motion} from "framer-motion";
 
 type Variant = "LOGIN" | "REGISTER";
 export const AuthForm = () => {
-    // const session = useSession();
+    const session = useSession();
     const router = useRouter();
     const [variant, setVariant] = useState("LOGIN");
     const [isLoading, setIsLoading] = useState(false);
 
-    // useEffect(() => {
-    //     if (session?.status === "authenticated") {
-    //         router.push("/users");
-    //     }
-    // }, [session?.status, router]);
+    useEffect(() => {
+        if (session?.status === "authenticated") {
+            router.push("/dashboard");
+        }
+    }, [session?.status, router]);
 
     const toggleVariant = useCallback(() => {
         if (variant === "LOGIN") {
