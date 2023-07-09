@@ -61,7 +61,7 @@ const Page = () => {
                     style={{transform: props.xys.to(trans)}}
                     className='w-full h-full flex justify-center items-center'>
                     <Image src={'/images/Decode_follow.png'}
-                           className='rounded-md shadow-[0_50px_100px] shadow-[#000]/60' alt={"Github"} height={336}
+                           className='rounded-md hover:scale-110 transition duration-200 shadow-[0_50px_100px] shadow-[#000]/60' alt={"Github"} height={336}
                            width={365}/>
                 </a.div>
             </motion.div>

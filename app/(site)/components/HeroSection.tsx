@@ -69,13 +69,13 @@ const HeroSection = () => {
             </motion.div>
             <motion.div variants={{
                 hidden: {
-                    opacity: 0, rotateX: -50, y: "10%"
+                    opacity: 0, rotateX: 50, y: "10%"
                 },
                 visible: {
                     opacity: 1, rotateX: 0, y: "0"
                 }
             }} initial="hidden" animate={mainControls}
-                        transition={{duration: 1.5}}
+                        transition={{duration: 0.3}}
                         ref={ref}
             >
                 <a.div
