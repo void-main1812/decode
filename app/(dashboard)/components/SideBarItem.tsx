@@ -12,6 +12,7 @@ interface SideBarItemProps {
   size?: number;
   active?: boolean;
   onClick?: () => void;
+  color?: string;
 }
 
 const inter = Inter({
@@ -24,6 +25,7 @@ const SideBarItem: React.FC<SideBarItemProps> = ({
   href,
   active,
   onClick,
+  color,
 }) => {
   const handleClick = () => {
     if (onClick) {
@@ -34,7 +36,7 @@ const SideBarItem: React.FC<SideBarItemProps> = ({
   return (
     <li
       onClick={handleClick}
-      className="flex gap-4 w-full justify-start items-center"
+      className="flex gap-4 w-full justify-start items-center transition duration-400 "
     >
       <Link
         href={href}
@@ -46,21 +48,24 @@ const SideBarItem: React.FC<SideBarItemProps> = ({
       rounded-md
       w-full
       p-3
+      juctify-start
+      items-center
       text-sm
       leading-6
       font-semibold
       text-gray-600
-      hover:text-white
       hover:bg-gradient-to-br
-      hover:from-gray-100/30
-      hover:to-gray-100/20
+      hover:from-gray-100/20
+      hover:to-gray-100/10
+      transition-all
+      duration-400
       `,
           active &&
-            "text-white bg-gradient-to-br from-gray-100/20 to-gray-100/10"
+            "text-white bg-gradient-to-br from-gray-100/30 to-gray-100/20"
         )}
       >
-        <Icon className="h-6 w-6" />
-        <span className={`text-lg font-semibold uppercase ${inter.className}`}>
+        <Icon className="h-6 w-6 " color={color} />
+        <span className={`text-lg font-semibold ${inter.className}`}>
           {label}
         </span>
       </Link>
