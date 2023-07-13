@@ -22,7 +22,7 @@ const SideBar: React.FC<SideBarProps> = ({ children }) => {
       <div className="h-[50vh] -bottom-12 -left-12 z-10 absolute w-[50vh] rounded-[100%] bg-purple-700 blur-[40vh]" />
       <div className="h-[50vh] -top-12 -right-12 z-10 absolute w-[50vh] rounded-[100%] bg-indigo-700 blur-[40vh]" />
       <div className="flex flex-col justify-between items-center w-[20vw] h-[100vh]">
-        <div className="flex mt-16 flex-col justify-center items-center gap-2 m-8">
+        <div className="flex flex-col justify-center items-center gap-2 mt-8">
           <Image
             src="/images/Decode_logo.png"
             alt="logo"

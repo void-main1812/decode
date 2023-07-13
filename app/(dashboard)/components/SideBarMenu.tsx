@@ -18,34 +18,39 @@ const SideBarMenu = () => {
   const routes = [
     {
       label: "Dashboard",
-      href: "/User/dashboard",
+      href: "/User",
       icon: GridSharp,
       active: pathname === "/User/dashboard",
       onclick: () => {},
+      cursor: "cursor-not-allowed",
     },
     {
       label: "Events",
-      href: "/User/events",
+      href: "/User",
       icon: TicketSharp,
       active: pathname === "/User/events",
+      cursor: "cursor-not-allowed",
     },
     {
       label: "Monthly",
-      href: "/User/monthly-events",
+      href: "/User",
       icon: CalendarClearSharp,
       active: pathname === "/User/monthly-events",
+      cursor: "cursor-not-allowed",
     },
     {
       label: "Queries",
-      href: "/User/queries",
+      href: "/User",
       icon: HelpCircleSharp,
       active: pathname === "/User/queries",
+      cursor: "cursor-not-allowed",
     },
     {
       label: "Announcements",
-      href: "/User/announcements",
+      href: "/User",
       icon: VolumeOffSharp,
       active: pathname === "/User/announcements",
+      cursor: "cursor-not-allowed",
     },
   ];
 
@@ -69,6 +74,7 @@ const SideBarMenu = () => {
             active={item.active}
             onClick={item.onclick}
             color={item.active ? "#fff" : "#565656"}
+            className={item.cursor}
           />
         ))}
       </ul>

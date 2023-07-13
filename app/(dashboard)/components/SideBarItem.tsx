@@ -13,6 +13,7 @@ interface SideBarItemProps {
   active?: boolean;
   onClick?: () => void;
   color?: string;
+  className?: string;
 }
 
 const inter = Inter({
@@ -26,6 +27,7 @@ const SideBarItem: React.FC<SideBarItemProps> = ({
   active,
   onClick,
   color,
+  className,
 }) => {
   const handleClick = () => {
     if (onClick) {
@@ -61,7 +63,8 @@ const SideBarItem: React.FC<SideBarItemProps> = ({
       duration-400
       `,
           active &&
-            "text-white bg-gradient-to-br from-gray-100/30 to-gray-100/20"
+            "text-white bg-gradient-to-br from-gray-100/30 to-gray-100/20",
+          className
         )}
       >
         <Icon className="h-6 w-6 " color={color} />
