@@ -8,6 +8,7 @@ import { useDragAnimation } from "@/hooks/useDragAnimation";
 import { useRouter } from "next/navigation";
 import TextSection from "@/app/(site)/components/TextSection";
 import useScrollAnimation from "@/hooks/useScrollAnimation";
+import { useSession } from "next-auth/react";
 
 const rowdies = Rowdies({
   subsets: ["latin"],
@@ -20,6 +21,7 @@ const play = Play({
 });
 
 const HeroSection = () => {
+  const session = useSession();
   const [isLoading, setIsLoading] = useState(false);
   const { handleMouseLeave, handleMouseMove, props, trans } =
     useDragAnimation();
@@ -65,16 +67,21 @@ const HeroSection = () => {
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5, delay: 1.5 }}
+        className="mt-8"
       >
-        <Button
-          className="mt-8"
-          type="button"
-          height={"25"}
-          isLoading={isLoading}
-          onClick={handleRoute}
-        >
-          GET STARTED WITH DECODE
-        </Button>
+        {session.data?.user ? (
+          " "
+        ) : (
+          <Button
+            height={"20"}
+            isLoading={isLoading}
+            delay={0.25}
+            type="button"
+            onClick={handleRoute}
+          >
+            GET STARTED WITH DECODE
+          </Button>
+        )}
       </motion.div>
       <motion.div
         variants={{
