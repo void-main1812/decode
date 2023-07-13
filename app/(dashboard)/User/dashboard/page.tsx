@@ -1,12 +1,7 @@
-import Content from "@/app/components/Content";
 import React from "react";
 
 const page = () => {
-  return (
-    <div>
-      <h1>Welcome to dashboard</h1>
-    </div>
-  );
+  return <div>page</div>;
 };
 
 export default page;

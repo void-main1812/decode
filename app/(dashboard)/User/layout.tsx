@@ -1,5 +1,6 @@
 import React from "react";
 import SideBar from "../components/SideBar";
+import Content from "@/app/components/Content";
 
 export default async function UsersLayout({
   children,
@@ -9,7 +10,7 @@ export default async function UsersLayout({
   return (
     <SideBar>
       <div className="h-[100vh] w-[100vh] relative overflow-hidden">
-        {children}
+        <Content>{children}</Content>
       </div>
     </SideBar>
   );
