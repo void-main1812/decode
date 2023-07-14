@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import UserItem from "@/app/components/UserItem";
 import MemberDetails from "@/app/components/MemberDetails";
 import { Inter, Rowdies } from "next/font/google";
@@ -27,71 +27,88 @@ const Members = () => {
       index: 0,
       name: "Sourabh Singh",
       role: "Chairperson",
-      image: "/images/user.png",
+      image: "/images/profile/Sourabh.png",
       desc: " Talented JavaScript developer and UI/UX designer, creating innovative digital experiences with skill and passion.",
+      Github: "https://github.com/void-main1812",
+      LinkedIn: "https://www.linkedin.com/in/sourabh-singh-491792240/",
     },
     {
       index: 1,
-      name: "Sourabh Singh",
-      role: "Chairperson",
-      image: "/images/user.png",
+      name: "Swapnil Singh",
+      role: "Vice-Chairperson",
+      image: "/images/profile/Swapnil_Singh.png",
       desc: "a hardworking girl",
+      Github: "https://github.com/smile-1006",
+      LinkedIn: "https://www.linkedin.com/in/swapnil-singh-bb4bbb220/",
     },
     {
       index: 2,
-      name: "Sourabh Singh",
-      role: "Chairperson",
-      image: "/images/user.png",
+      name: "Anurag Gupta",
+      role: "Vice-Chairperson",
+      image: "/images/profile/Anurag_gupta.png",
       desc: "a hardworking boy",
+      Github: "http://github.com/anurag-int",
+      LinkedIn: "https://www.linkedin.com/in/anurag-gupta-8b40b0207",
     },
     {
       index: 3,
-      name: "Sourabh Singh",
-      role: "Chairperson",
-      image: "/images/user.png",
+      name: "Suryanshu Dobai",
+      role: "Technical-Head",
+      image: "/images/profile/Suryanshu_Dobai.png",
       desc: "a hardworking boy",
+      Github: "https://github.com/Suyanshu9",
+      LinkedIn: "https://www.linkedin.com/in/sur99/",
     },
     {
       index: 4,
-      name: "Sourabh Singh",
-      role: "Chairperson",
-      image: "/images/user.png",
+      name: "Aswin Pratap",
+      role: "Technical-Head",
+      image: "/images/profile/Aswin_pratap.png",
       desc: "a hardworking boy",
+      Github: "https://github.com/CodexEZ",
+      LinkedIn: "https://www.linkedin.com/in/aswin-pratapsingh-a307b4200",
     },
     {
       index: 5,
-      name: "Sourabh Singh",
-      role: "Chairperson",
-      image: "/images/user.png",
+      name: "Ved Agrawal",
+      role: "Events-Head",
+      image: "/images/profile/Ved_agrawal.png",
       desc: "a hardworking boy",
+      LinkedIn: "https://www.linkedin.com/in/ved-agarwal-1429ba253/",
     },
     {
       index: 6,
-      name: "Sourabh Singh",
-      role: "Chairperson",
+      name: "Simran Sharma",
+      role: "Design/Branding-Head",
       image: "/images/user.png",
-      desc: "a hardworking boy",
+      desc: "a hardworking Girl",
+      LinkedIn: "https://www.linkedin.com/in/simran-sharma-2abba9234/",
     },
     {
       index: 7,
-      name: "Sourabh Singh",
-      role: "Chairperson",
-      image: "/images/user.png",
+      name: "Siddhart Mishra",
+      role: "Public Relations & Outreach Head",
+      image: "/images/profile/Siddhart_Mishra.png",
       desc: "a hardworking boy",
+      LinkedIn: "https://www.linkedin.com/in/siddharth-mishra-b87a1821a/",
     },
     {
       index: 8,
-      name: "Sourabh Singh",
-      role: "Chairperson",
-      image: "/images/user.png",
+      name: "Om Rathore",
+      role: "Marketing Head",
+      image: "/images/profile/Om_Rathore.png",
       desc: "a hardworking boy",
+      Github: "https://github.com/itzz-om",
+      LinkedIn: "https://www.linkedin.com/in/titan098/",
     },
     {
       index: 9,
-      name: "Sourabh Singh",
-      role: "Chairperson",
+      name: "Vineet Singh",
+      role: "Social Media Head",
       image: "/images/user.png",
       desc: "a hardworking boy",
+      Github: "https://github.com/ImagineGrr",
+      LinkedIn: "https://www.linkedin.com/in/vineet-singh-38b52323b/",
     },
   ];
 
@@ -99,7 +116,6 @@ const Members = () => {
 
   const handleClick = (index: number) => {
     setPresentIndex(index);
-    console.log(presentIndex);
   };
 
   return (
@@ -150,6 +166,7 @@ const Members = () => {
               role={item.role}
               onClick={() => handleClick(item.index)}
               key={item.index}
+              active={item.index === presentIndex}
             />
           ))}
         </motion.div>
@@ -161,6 +178,8 @@ const Members = () => {
           image={members[presentIndex].image}
           role={members[presentIndex].role}
           description={members[presentIndex].desc}
+          Github={members[presentIndex].Github}
+          LinkedIn={members[presentIndex].LinkedIn}
         />
         <div className="h-[50vh] w-[50vh] bg-purple-600 rounded-full blur-[30vh] absolute -left-[10vw] z-0" />
       </div>

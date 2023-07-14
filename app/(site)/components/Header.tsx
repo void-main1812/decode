@@ -4,8 +4,11 @@ import React, { useState } from "react";
 import Button from "@/app/components/Button";
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
+import { useDimensions } from "@/hooks/useDimensioins";
 
 const Header = () => {
+  const { width } = useDimensions();
+
   const session = useSession();
 
   const [isLoading, setIsLoading] = useState(false);
@@ -22,6 +25,10 @@ const Header = () => {
   };
 
   const router = useRouter();
+
+  if (width.current < 768) {
+    return null;
+  }
 
   return (
     <div className="z-30 fixed top-0 w-full py-2 flex bg-transparent backdrop-blur-md border-b-[1px] border-gray-400/20 justify-between px-8 items-center ">
