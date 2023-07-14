@@ -21,6 +21,7 @@ const VolunteerOpening: React.FC<VolunteerOpeningProps> = ({ onClick }) => {
 
   return (
     <motion.div
+      id="volunteer"
       variants={{
         hidden: {
           opacity: 0,
@@ -54,9 +55,16 @@ const VolunteerOpening: React.FC<VolunteerOpeningProps> = ({ onClick }) => {
         </p>
       </div>
       <div className="flex items-center justify-between h-[25vh] ">
-        <Button height={"25"} onClick={() => {}} className="w-[15vw]" secondary>
-          Apply Now
-        </Button>
+        <a href="https://forms.gle/QvMs3TZgX1LeN7tk7" target="_blank">
+          <Button
+            height={"25"}
+            onClick={() => {}}
+            className="w-[15vw]"
+            secondary
+          >
+            Apply Now
+          </Button>
+        </a>
       </div>
     </motion.div>
   );
