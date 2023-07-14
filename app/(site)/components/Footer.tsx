@@ -13,7 +13,7 @@ const inter = Inter({
 const Footer = () => {
   const { width } = useDimensions();
 
-  if (width.current < 768) {
+  if (width.current < 1000) {
     return null;
   }
 
