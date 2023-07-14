@@ -26,7 +26,7 @@ const Header = () => {
 
   const router = useRouter();
 
-  if (width.current < 768) {
+  if (width.current < 1000) {
     return null;
   }
 
