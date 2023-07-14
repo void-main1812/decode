@@ -112,11 +112,11 @@ const HeroSection = () => {
           <div className="h-[80vh] opacity-0 transition-opacity duration-500 group-hover:opacity-100 w-[40vh] bg-purple-600 blur-[30vh] rounded-full absolute -left-8 top-10" />
           <div className="h-[80vh] opacity-0 transition-opacity duration-500 group-hover:opacity-100 w-[60vh] bg-indigo-700 blur-[40vh] rounded-full -right-8 absolute -bottom-10" />
           <Image
-            src={"/images/code.png"}
+            src={"/images/vscode.png"}
             alt="coding preview"
             height={619}
             width={991}
-            className="mt-16 border-[1px] relative border-purple-900 rounded-xl "
+            className="mt-16 border-[1px] relative border-purple-900 rounded-xl"
           />
         </a.div>
       </motion.div>
