@@ -4,10 +4,9 @@ import React, { useState } from "react";
 import Button from "@/app/components/Button";
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
-import { useDimensions } from "@/hooks/useDimensioins";
 
 const Header = () => {
-  const { width } = useDimensions();
+  // const { width } = useDimensions();
 
   const session = useSession();
 
@@ -26,7 +25,7 @@ const Header = () => {
 
   const router = useRouter();
 
-  if (width.current < 1000) {
+  if (globalThis.window?.innerWidth < 1000) {
     return null;
   }
 
