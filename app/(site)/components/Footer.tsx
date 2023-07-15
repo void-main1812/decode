@@ -3,7 +3,6 @@
 import React from "react";
 import { Inter } from "next/font/google";
 import Image from "next/image";
-import { useDimensions } from "@/hooks/useDimensioins";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -11,9 +10,7 @@ const inter = Inter({
 });
 
 const Footer = () => {
-  const { width } = useDimensions();
-
-  if (width.current < 1000) {
+  if (globalThis.window?.innerWidth < 1000) {
     return null;
   }
 
