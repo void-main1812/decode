@@ -10,30 +10,29 @@ import Members from "@/app/(site)/components/Members";
 import Events from "@/app/(site)/components/Events";
 import Wrap from "@/app/(site)/components/Wrap";
 import VolunteerModal from "./VolunteerModal";
-import { useDimensions } from "@/hooks/useDimensioins";
 import Image from "next/image";
 
 const Body = () => {
-  const { width } = useDimensions();
-
-  if (width.current < 1000) {
+  if (globalThis.window?.innerWidth < 1000) {
     return (
-      <div className="overflow-hidden flex-col h-[100vh] w-[100vw] flex justify-center items-center ">
-        <Image
-          alt="Decode Logo"
-          src="/images/decode_logo_colored.png"
-          height={150}
-          width={150}
-        />
-        <h1 className="uppercase text-transparent bg-clip-text bg-gradient-to-b from-gray-200/80 to-gray-200/50 text-4xl mt-8 font-bold">
-          Use Desktop
-        </h1>
-        <p className="mt-8 text-sm text-gray-500 w-[80vw] text-center">
-          😥 Unfortunately we are currently working on the responsiveness of the
-          website. Please don&apos;t mind and checkout the website on desktop.
-          Sorry for the incnvinience caused
-        </p>
-      </div>
+      <>
+        <div className="overflow-hidden flex-col h-[100vh] w-[100vw] flex justify-center items-center ">
+          <Image
+            alt="Decode Logo"
+            src="/images/decode_logo_colored.png"
+            height={150}
+            width={150}
+          />
+          <h1 className="uppercase text-transparent bg-clip-text bg-gradient-to-b from-gray-200/80 to-gray-200/50 text-4xl mt-8 font-bold">
+            Use Desktop
+          </h1>
+          <p className="mt-8 text-sm text-gray-500 w-[80vw] text-center">
+            😥 Unfortunately we are currently working on the responsiveness of
+            the website. Please don&apos;t mind and checkout the website on
+            desktop. Sorry for the incnvinience caused
+          </p>
+        </div>
+      </>
     );
   }
 
