@@ -105,7 +105,7 @@ const Members = () => {
       index: 9,
       name: "Vineet Singh",
       role: "Social Media Head",
-      image: "/images/profile/Vineet_Singh.png",
+      image: "/images/profile/Vineet_Singh1.png",
       desc: "A dedicated individual with a strong passion for backend development and cloud technology, driving innovation with expertise.",
       Github: "https://github.com/ImagineGrr",
       LinkedIn: "https://www.linkedin.com/in/vineet-singh-38b52323b/",
