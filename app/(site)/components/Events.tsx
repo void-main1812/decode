@@ -3,7 +3,6 @@ import EventsCard from "@/app/components/EventsCard";
 import Image from "next/image";
 import { Inter, Rowdies } from "next/font/google";
 import TextSection from "@/app/(site)/components/TextSection";
-import { useAnimation, useInView } from "framer-motion";
 import AnimatedImage from "@/app/(site)/components/AnimatedImage";
 
 const inter = Inter({
@@ -83,7 +82,7 @@ const Events = () => {
           {events.map((item, index) => {
             return (
               <EventsCard
-                delay={index * 0.1 + 0.5}
+                delay={index * 0.1}
                 key={index}
                 title={item.name}
                 description={item.details}
@@ -103,8 +102,11 @@ const Events = () => {
             src={events[showDetails].image}
             alt={"image"}
             className="object-cover rounded-lg"
+            loading="lazy"
             height={500}
             width={700}
+            placeholder="blur"
+            blurDataURL={events[showDetails].image}
           />
         </AnimatedImage>
       </div>
