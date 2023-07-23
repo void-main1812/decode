@@ -20,18 +20,42 @@ const Footer = () => {
     >
       <h1 className="text-gray-600 font-bold text-base">DECODE</h1>
       <div className="flex text-gray-600 flex-col gap-4 justify-start items-start">
-        <a className="hover:text-gray-400 cursor-pointer transition">
+        <a
+          className="hover:text-gray-400 cursor-pointer transition"
+          href="https://www.instagram.com/gfg_opju/"
+          target="_blank"
+        >
           Instagram
         </a>
-        <a className="hover:text-gray-400 cursor-pointer transition">Twitter</a>
-        <a className="hover:text-gray-400 cursor-pointer transition">
+        <a
+          className="hover:text-gray-400 cursor-pointer transition"
+          href="https://twitter.com/GFGxDecode"
+          target="_blank"
+        >
+          Twitter
+        </a>
+        <a
+          className="hover:text-gray-400 cursor-pointer transition"
+          href="https://www.facebook.com/profile.php?id=100094354056193"
+          target="_blank"
+        >
           Facebook
         </a>
-        <a className="hover:text-gray-400 cursor-pointer transition">
+        <a
+          className="hover:text-gray-400 cursor-pointer transition"
+          href="https://www.linkedin.com/company/decodexgfg/"
+          target="_blank"
+        >
           LinkedIn
         </a>
         <a className="hover:text-gray-400 cursor-pointer transition">GitHub</a>
-        <a className="hover:text-gray-400 cursor-pointer transition">YouTube</a>
+        <a
+          className="hover:text-gray-400 cursor-pointer transition"
+          href="https://www.youtube.com/channel/UC9awsiNtjnUZx7eE2CXd1tw"
+          target="_blank"
+        >
+          YouTube
+        </a>
         <a className="hover:text-gray-400 cursor-pointer transition">
           WhatsApp
         </a>
