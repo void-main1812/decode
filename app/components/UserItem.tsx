@@ -45,7 +45,7 @@ const UserItem: React.FC<userItemProps> = ({
       ref={ref}
       transition={{ duration: 0.5, ease: "easeInOut" }}
       onClick={onClick}
-      className={`flex user-item justify-start hover:cursor-pointer hover:bg-gray-500/10 p-4 items-center border-b-[1px] border-gray-100/10 h-[10vh] ${
+      className={`flex justify-start hover:cursor-pointer hover:bg-gray-500/10 p-4 items-center border-b-[1px] border-gray-100/10 h-[10vh] ${
         active ? "bg-gray-200/10 hover:bg-gray-200/10" : ""
       } ${inter.className} `}
     >

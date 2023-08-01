@@ -38,7 +38,7 @@ const HeroSection = () => {
 
   return (
     <>
-      <div className="h-[60vh] w-[80vw] bg-purple-800 blur-[50vh] rounded-full absolute top-[-30vh]" />
+      <div className="h-[60vh] w-[80vw] bg-purple-800 blur-[20vh] sm:blur-[50vh] rounded-full absolute top-[-30vh]" />
       <div className="flex flex-col gap-5 justify-center items-center">
         <TextSection delay={0.1}>
           <p className="uppercase text-3xl text-white font-normal tracking-[5px]">
@@ -47,10 +47,10 @@ const HeroSection = () => {
         </TextSection>
         <TextSection delay={0.5}>
           <div className={rowdies.className}>
-            <h1 className="text-8xl text-transparent mb-4 bg-clip-text bg-gradient-to-b relative from-gray-50 to-gray-600/20 font-bold tracking-[8px]">
+            <h1 className="text-7xl sm:text-8xl sm:font-bold text-transparent mb-4 bg-clip-text bg-gradient-to-b relative from-gray-50 to-gray-600/20 font-semibold tracking-[8px]">
               DECODE
               <p
-                className={`text-white text-xl tracking-wide uppercase absolute px-4 py-1 rounded-full backdrop-blur-sm -right-10 bottom-0 bg-gray-50/10 ${play.className}`}
+                className={`text-white text-xl tracking-wide uppercase hidden sm:absolute px-4 py-1 rounded-full backdrop-blur-sm -right-10 bottom-0 bg-gray-50/10 ${play.className}`}
               >
                 beta
               </p>
@@ -58,7 +58,7 @@ const HeroSection = () => {
           </div>
         </TextSection>
         <TextSection delay={0.9}>
-          <p className="uppercase text-3xl text-gray-100/40 font-normal tracking-[5px]">
+          <p className="uppercase text-xl text-center sm:text-3xl text-gray-100/40 font-normal tracking-[5px]">
             Innovate, Collaborate & Code
           </p>
         </TextSection>
@@ -70,7 +70,17 @@ const HeroSection = () => {
         className="mt-8"
       >
         {session.data?.user ? (
-          " "
+          <Button
+            height={"20"}
+            isLoading={isLoading}
+            delay={0.25}
+            type="button"
+            onClick={() => router.push(
+              "https://discord.com/channels/1086178031304974388/1135124741758386187"
+            )}
+          >
+            GO TO DECODE DISCORD
+          </Button>
         ) : (
           <Button
             height={"20"}
@@ -100,6 +110,7 @@ const HeroSection = () => {
         animate={mainControls}
         transition={{ duration: 0.3 }}
         ref={ref}
+        className="hidden sm:block"
       >
         <a.div
           className="group relative"

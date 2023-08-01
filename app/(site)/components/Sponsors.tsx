@@ -7,6 +7,8 @@ import useScrollAnimation from "@/hooks/useScrollAnimation";
 const Sponsors = () => {
   const { ref, mainControls } = useScrollAnimation();
 
+  const windowWidth = globalThis.window?.innerWidth > 500 ? true : false;
+
   return (
     <motion.div
       variants={{
@@ -31,16 +33,16 @@ const Sponsors = () => {
           <Image
             src={"/images/gfg_logo.png"}
             alt="gfg logo"
-            height={70}
-            width={280}
+            height={windowWidth ? 70 : 35}
+            width={windowWidth ? 280 : 140}
           />
         </AnimatedImage>
         <AnimatedImage delay={0.5}>
           <Image
             src={"/images/opju_logo.png"}
             alt="opju logo"
-            height={70}
-            width={140}
+            height={windowWidth ? 70 : 35}
+            width={windowWidth ? 140 : 70}
           />
         </AnimatedImage>
       </div>
