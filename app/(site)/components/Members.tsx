@@ -118,6 +118,7 @@ const Members = () => {
     setPresentIndex(index);
   };
 
+
   return (
     <div
       className="container flex flex-col gap-8 justify-center items-center mt-20 mb-10 "
@@ -125,21 +126,21 @@ const Members = () => {
     >
       <TextSection delay={0.1}>
         <h1
-          className={`text-6xl text-transparent bg-clip-text bg-gradient-to-b from-gray-100/80 to-gray-600/80 uppercase font-bold ${rowdies.className} `}
+          className={`text-4xl sm:text-6xl text-transparent bg-clip-text bg-gradient-to-b from-gray-100/80 to-gray-600/80 uppercase font-bold ${rowdies.className} `}
         >
           Core Members
         </h1>
       </TextSection>
       <TextSection delay={0.3}>
         <p
-          className={`text-gray-500 font-extralight text-lg w-[50vw] text-center ${inter.className} `}
+          className={`text-gray-500 font-extralight text-lg m-4 sm:m-0 sm:w-[50vw] text-center ${inter.className} `}
         >
           These efforts can&apos;t be successful without the help of our core
           team members so let&apos;s appreciate their efforts by supporting them
           on various platforms.{" "}
         </p>
       </TextSection>
-      <div className="flex relative justify-center w-[95vw] items-center">
+      <div className="flex flex-col sm:flex-row relative justify-center w-[95vw] items-center">
         {/*List of Members*/}
 
         <motion.div
@@ -157,7 +158,7 @@ const Members = () => {
           animate={mainControls}
           ref={ref}
           transition={{ duration: 0.75, delay: 0.3 }}
-          className="h-[60vh] w-[25vw] rounded-xl z-10 mr-16 border-[1px] overflow-y-scroll border-gray-100/20 bg-gradient-to-br from-gray-100/20 to-gray-600/10"
+          className="h-[60vh] w-[80vw] sm:w-[25vw] rounded-xl z-10 sm:mr-16 border-[1px] overflow-y-scroll border-gray-100/20 bg-gradient-to-br from-gray-100/20 to-gray-600/10"
         >
           {members.map((item) => (
             <UserItem
@@ -181,7 +182,7 @@ const Members = () => {
           Github={members[presentIndex].Github}
           LinkedIn={members[presentIndex].LinkedIn}
         />
-        <div className="h-[50vh] w-[50vh] bg-purple-600 rounded-full blur-[30vh] absolute -left-[10vw] z-0" />
+        <div className="h-[50vh] w-[50vh] bg-purple-600 rounded-full blur-[30vh] absolute top-[10vh] sm:top-0 -left-[10vw] z-0" />
       </div>
     </div>
   );

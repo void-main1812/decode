@@ -16,8 +16,8 @@ type Variant = "LOGIN" | "REGISTER";
 export const AuthForm = () => {
   const session = useSession();
   const router = useRouter();
-  const [variant, setVariant] = useState("LOGIN");
   const [isLoading, setIsLoading] = useState(false);
+  const [variant, setVariant] = useState("LOGIN");
 
   useEffect(() => {
     if (session?.status === "authenticated") {

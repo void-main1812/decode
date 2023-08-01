@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { Inter } from "next/font/google";
 import { BiLogoGithub, BiLogoLinkedin } from "react-icons/bi";
@@ -30,6 +30,7 @@ const MemberDetails: React.FC<memberDetailsProps> = ({
   Github,
   LinkedIn,
 }) => {
+  const windowWidth = globalThis.window?.innerWidth > 500 ? true : false;
   const { ref, mainControls } = useScrollAnimation();
 
   return (
@@ -48,24 +49,26 @@ const MemberDetails: React.FC<memberDetailsProps> = ({
       animate={mainControls}
       ref={ref}
       transition={{ duration: 0.5, ease: "easeInOut" }}
-      className="flex h-[80vh] flex-col justify-center items-start p-[10vh] gap-8"
+      className="sm:h-[80vh] flex-col justify-center items-center sm:items-start p-[10vh] gap-8 flex"
     >
       <div
-        className={`flex justify-start items-center gap-10 ${inter.className}`}
+        className={`flex justify-center sm:justify-start items-center gap-10 ${inter.className}`}
       >
         <Image
           src={image}
           alt={"image"}
-          height={120}
-          width={120}
+          height={windowWidth ? 120 : 100}
+          width={windowWidth ? 120 : 100}
           className="rounded-lg"
         />
         <div className="flex flex-col">
-          <h1 className="text-4xl font-semibold text-gray-200">{name}</h1>
-          <p className="text-2xl text-gray-500">{role}</p>
+          <h1 className="text-2xl sm:text-4xl font-semibold text-gray-200">
+            {name}
+          </h1>
+          <p className="text-2xl hidden sm:block text-gray-500">{role}</p>
         </div>
       </div>
-      <p className="text-2xl tracking-wider text-gray-400 w-[50vw]">
+      <p className="text-xl sm:text-2xl tracking-wider text-gray-400 m-4 sm:m-0 w-[80vw] sm:w-[50vw]">
         {description}
       </p>
       <div className="flex gap-4 mt-6">
