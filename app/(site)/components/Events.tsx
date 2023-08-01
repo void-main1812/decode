@@ -64,21 +64,21 @@ const Events = () => {
     >
       <TextSection delay={0.1}>
         <h1
-          className={`text-6xl text-transparent bg-clip-text bg-gradient-to-b from-gray-100/80 to-gray-600/80 uppercase font-bold ${rowdies.className} `}
+          className={`sm:text-6xl text-4xl text-transparent bg-clip-text bg-gradient-to-b from-gray-100/80 to-gray-600/80 uppercase font-bold ${rowdies.className} `}
         >
           Events & Activities
         </h1>
       </TextSection>
       <TextSection delay={0.3}>
         <p
-          className={`text-gray-500 font-extralight text-lg w-[50vw] text-center ${inter.className} `}
+          className={`text-gray-500 font-extralight text-lg w-[90vw] sm:w-[50vw] text-center ${inter.className} `}
         >
           There will be various Events and activities under the Community which
           will enhance your skills and motivate you to excel in your career.
         </p>
       </TextSection>
-      <div className="flex justify-center items-center z-10 relative w-[95vw]">
-        <div className="flex flex-col justify-start items-start w-[50vw] ">
+      <div className="flex flex-col sm:flex-row justify-center items-center z-10 relative w-[95vw]">
+        <div className="flex flex-col justify-start mb-8 sm:mb-0 items-start w-[90vw] sm:w-[50vw] ">
           {events.map((item, index) => {
             return (
               <EventsCard

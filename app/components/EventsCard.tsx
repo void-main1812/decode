@@ -48,7 +48,7 @@ const EventsCard: React.FC<EventsCardProps> = ({
       }}
       ref={ref}
       onClick={onClick}
-      className={`bg-gradient-to-br cursor-pointer w-[40vw] p-4 flex flex-col rounded-md font-semibold gap-2 justify-start items-start ${background} `}
+      className={`bg-gradient-to-br cursor-pointer w-full sm:w-[40vw] p-4 flex flex-col rounded-md font-semibold gap-2 justify-start items-start ${background} `}
     >
       <motion.h1
         variants={{

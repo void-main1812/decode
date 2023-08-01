@@ -10,16 +10,18 @@ const inter = Inter({
 });
 
 const Footer = () => {
-  if (globalThis.window?.innerWidth < 1000) {
-    return null;
-  }
+  //   if (globalThis.window?.innerWidth < 1000) {
+  //     return null;
+  //   }
 
   return (
     <div
-      className={`grid grid-cols-3 py-[8vh] border-t border-gray-400/30 px-10 ${inter.className}`}
+      className={`grid grid-cols-1 sm:grid-cols-3 py-[8vh] border-t border-gray-400/30 px-10 ${inter.className}`}
     >
-      <h1 className="text-gray-600 font-bold text-base">DECODE</h1>
-      <div className="flex text-gray-600 flex-col gap-4 justify-start items-start">
+      <h1 className="text-gray-600 font-bold text-base mb-16 sm:mb-0">
+        DECODE
+      </h1>
+      <div className="flex text-gray-600 flex-col gap-4 justify-start mb-16 sm:mb-0 items-start">
         <a
           className="hover:text-gray-400 cursor-pointer transition"
           href="https://www.instagram.com/gfg_opju/"
